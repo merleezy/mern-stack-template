@@ -1,0 +1,20 @@
+{
+  "name": "devconnect",
+  "version": "1.0.0",
+  "description": "A lightweight “LinkedIn for developers” for developers to share projects and connect.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/merleezy/DevConnect.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/merleezy/DevConnect/issues"
+  },
+  "homepage": "https://github.com/merleezy/DevConnect#readme"
+}
