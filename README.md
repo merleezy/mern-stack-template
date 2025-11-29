@@ -88,48 +88,48 @@ A personalized feed shows posts from followed users, groups, and recommended con
 
 ```text
 devconnect/
-├── client/ # Frontend (React + Vite)
-│ ├── public/ # Static assets (favicon, manifest)
-│ ├── src/
-│ │ ├── assets/ # Images, fonts, and icons
-│ │ ├── components/ # Reusable UI components (Buttons, Inputs)
-│ │ ├── context/ # Global state (AuthContext, ThemeContext)
-│ │ ├── hooks/ # Custom React hooks
-│ │ ├── pages/ # Full page views (Dashboard, Login)
-│ │ ├── services/ # API service calls (Axios setup)
-│ │ ├── styles/ # Global styles & Tailwind setup
-│ │ ├── utils/ # Helper functions (dates, validation)
-│ │ ├── App.jsx # Main application component
-│ │ └── main.jsx # Frontend entry point
-│ ├── Dockerfile # Frontend container configuration
-│ ├── .env.example # Client environment variables
-│ ├── .eslintignore # ESLint exclusion list
-│ ├── .dockerignore # Docker exclusion list
-│ └── package.json # Frontend dependencies
+├── client/                 # Frontend (React + Vite)
+│   ├── public/             # Static assets (favicon, manifest)
+│   ├── src/
+│   │   ├── assets/         # Images, fonts, and icons
+│   │   ├── components/     # Reusable UI components (Buttons, Inputs)
+│   │   ├── context/        # Global state (AuthContext, ThemeContext)
+│   │   ├── hooks/          # Custom React hooks
+│   │   ├── pages/          # Full page views (Dashboard, Login)
+│   │   ├── services/       # API service calls (Axios setup)
+│   │   ├── styles/         # Global styles & Tailwind setup
+│   │   ├── utils/          # Helper functions (dates, validation)
+│   │   ├── App.jsx         # Main application component
+│   │   └── main.jsx        # Frontend entry point
+│   ├── Dockerfile          # Frontend container configuration
+│   ├── .env.example        # Client environment variables
+│   ├── .eslintignore       # ESLint exclusion list
+│   ├── .dockerignore       # Docker exclusion list
+│   └── package.json        # Frontend dependencies
 │
-├── server/ # Backend (Node.js + Express)
-│ ├── config/ # DB connection & app configuration
-│ ├── controllers/ # Request handlers (The "Brain")
-│ ├── middleware/ # Auth checks, error handling, logging
-│ ├── models/ # Mongoose schemas (Data structure)
-│ ├── routes/ # API route definitions
-│ ├── services/ # Business logic isolation
-│ ├── tests/ # Unit and integration tests
-│ ├── utils/ # Backend helper functions
-│ ├── server.js # Backend entry point
-│ ├── Dockerfile # Backend container configuration
-│ ├── .env.example # Server environment variables
-│ ├── .eslintignore # ESLint exclusion list
-│ ├── .dockerignore # Docker exclusion list
-│ └── package.json # Backend dependencies
+├── server/                 # Backend (Node.js + Express)
+│   ├── config/             # DB connection & app configuration
+│   ├── controllers/        # Request handlers (The "Brain")
+│   ├── middleware/         # Auth checks, error handling, logging
+│   ├── models/             # Mongoose schemas (Data structure)
+│   ├── routes/             # API route definitions
+│   ├── services/           # Business logic isolation
+│   ├── tests/              # Unit and integration tests
+│   ├── utils/              # Backend helper functions
+│   ├── server.js           # Backend entry point
+│   ├── Dockerfile          # Backend container configuration
+│   ├── .env.example        # Server environment variables
+│   ├── .eslintignore       # ESLint exclusion list
+│   ├── .dockerignore       # Docker exclusion list
+│   └── package.json        # Backend dependencies
 │
-├── docker-compose.yml # Orchestrates Client, Server, and Database
-├── .gitignore # Git exclusion list
-├── package.json # Root dependencies and scripts
-├── .dockerignore # Docker exclusion list
-├── .editorconfig # Editor configuration
-├── .prettierrc # Prettier configuration
-└── README.md # Project documentation
+├── docker-compose.yml      # Orchestrates Client, Server, and Database
+├── .gitignore              # Git exclusion list
+├── package.json            # Root dependencies and scripts
+├── .dockerignore           # Docker exclusion list
+├── .editorconfig           # Editor configuration
+├── .prettierrc             # Prettier configuration
+└── README.md               # Project documentation
 ```
 ---
 
