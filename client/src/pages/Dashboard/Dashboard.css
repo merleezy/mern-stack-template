@@ -1,0 +1,82 @@
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.dashboard-header h1 {
+  color: #333;
+}
+
+.btn-logout {
+  padding: 0.5rem 1.5rem;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-logout:hover {
+  background: #c82333;
+}
+
+.dashboard-content {
+  display: grid;
+  gap: 2rem;
+}
+
+.user-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-card h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.user-info {
+  display: grid;
+  gap: 1rem;
+}
+
+.user-info p {
+  margin: 0;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.user-info p:last-child {
+  border-bottom: none;
+}
+
+.user-info strong {
+  color: #555;
+  margin-right: 0.5rem;
+}
+
+.quick-links {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.quick-links h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}

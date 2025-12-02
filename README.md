@@ -1,286 +1,328 @@
-# DevConnect
+# my-awesome-app - Production-Ready MERN Stack Template
 
-A lightweight “LinkedIn for developers” — a platform where developers can connect, post projects, follow others, and collaborate.
-
----
-
-## Overview
-
-DevConnect is a social platform designed specifically for developers.
-Instead of generic social noise, it focuses on:
-
-- sharing projects
-- discussing technology
-- forming niche communities
-- and creating meaningful developer-to-developer interactions
+A modern, production-ready MERN (MongoDB, Express, React, Node.js) stack template with authentication, security best practices, and Docker support.
 
 ---
 
-## Purpose
-
-Most developer communities are scattered across GitHub, Discord servers, StackOverflow, Reddit, etc.
-DevConnect aims to centralize these interactions into one unified platform.
-
----
-
-## Features (Planned)
-
-- [ ] User registration + login (JWT)
-- [ ] Create / edit / delete posts
-- [ ] Like / dislike posts and comments
-- [ ] Comment threads
-- [ ] Real-time DM messaging
-- [ ] User profiles with bio, skills, and project links
-- [ ] Edit profile and account settings
-- [ ] Personalized feed with recommended posts
-- [ ] Follow/unfollow system
-- [ ] Search for users, posts, or groups
-- [ ] Create and join developer groups
-- [ ] Group feeds and discussions
-
----
-
-## Tech Stack
-
-### Frontend
-
-- React (Vite)
-- JavaScript
-- CSS / Tailwind (optional)
+## 🚀 Features
 
 ### Backend
-
-- Node.js
-- Express.js
-- Mongoose (MongoDB ODM)
-
-### Database
-
-- MongoDB Atlas (production)
-- MongoDB Docker container (development)
-
-### Infrastructure / DevOps
-
-- Docker & Docker Compose
-- GitHub Actions (planned)
-- Render / Vercel for deployment
-
----
-
-## Learning Objectives
-
-- Build a clean, scalable MERN application
-- Understand REST API architecture + JWT authentication
-- Use containerization with Docker
-- Strengthen React design patterns and state management
-- Learn CI/CD concepts for deployment
-
----
-
-## User Flow Summary
-
-Users can register, build a profile, follow other developers, create posts, comment, and join community groups.
-A personalized feed shows posts from followed users, groups, and recommended content.
-
----
-
-# Project Structure
-
-```text
-devconnect/
-├── client/                 # Frontend (React + Vite)
-│   ├── public/             # Static assets (favicon, manifest)
-│   ├── src/
-│   │   ├── assets/         # Images, fonts, and icons
-│   │   ├── components/     # Reusable UI components (Buttons, Inputs)
-│   │   ├── context/        # Global state (AuthContext, ThemeContext)
-│   │   ├── hooks/          # Custom React hooks
-│   │   ├── pages/          # Full page views (Dashboard, Login)
-│   │   ├── services/       # API service calls (Axios setup)
-│   │   ├── styles/         # Global styles & Tailwind setup
-│   │   ├── utils/          # Helper functions (dates, validation)
-│   │   ├── App.jsx         # Main application component
-│   │   └── main.jsx        # Frontend entry point
-│   ├── Dockerfile          # Frontend container configuration
-│   ├── .env.example        # Client environment variables
-│   ├── eslint.config.js    # ESLint config file
-│   ├── .dockerignore       # Docker exclusion list
-│   └── package.json        # Frontend dependencies
-│
-├── server/                 # Backend (Node.js + Express)
-│   ├── config/             # DB connection & app configuration
-│   ├── controllers/        # Request handlers (The "Brain")
-│   ├── middleware/         # Auth checks, error handling, logging
-│   ├── models/             # Mongoose schemas (Data structure)
-│   ├── routes/             # API route definitions
-│   ├── services/           # Business logic isolation
-│   ├── tests/              # Unit and integration tests
-│   ├── utils/              # Backend helper functions
-│   ├── server.js           # Backend entry point
-│   ├── Dockerfile          # Backend container configuration
-│   ├── .env.example        # Server environment variables
-│   ├── eslint.config.js    # ESLint config file
-│   ├── .dockerignore       # Docker exclusion list
-│   └── package.json        # Backend dependencies
-│
-├── docker-compose.yml      # Orchestrates Client, Server, and Database
-├── .gitignore              # Git exclusion list
-├── package.json            # Root dependencies and scripts
-├── .dockerignore           # Docker exclusion list
-├── .editorconfig           # Editor configuration
-├── .prettierrc             # Prettier configuration
-└── README.md               # Project documentation
-```
----
-
-# Environment Variables
-
-### Client `.env`
-
-```env
-VITE_API_URL=http://localhost:4000
-```
-
-### Server `.env`
-
-```env
-PORT=4000
-MONGODB_URI=mongodb://mongo:27017/devconnect
-JWT_SECRET=your-secret-here
-```
-
-Be sure to copy `.env.example` into `.env` when setting up locally.
-
----
-
-# Setup Instructions
-
-## 1. Clone the repository
-
-```bash
-git clone https://github.com/yourusername/devconnect.git
-cd devconnect
-```
-
-## 2. Install dependencies
+- ✅ **JWT Authentication** with access & refresh tokens
+- ✅ **Security hardened** (Helmet, rate limiting, input sanitization)
+- ✅ **Error handling** with development/production modes
+- ✅ **Logging** with Winston (file & console)
+- ✅ **Environment validation** with Zod
+- ✅ **MongoDB** with Mongoose ODM
+- ✅ **RESTful API** structure
 
 ### Frontend
+- ✅ **React 19** with Vite
+- ✅ **React Router** for navigation
+- ✅ **Auth Context** for state management
+- ✅ **Protected routes**
+- ✅ **Axios** with interceptors for API calls
+- ✅ **Responsive** starter pages
 
-```bash
-cd client
+### DevOps
+- ✅ **Docker** & Docker Compose support
+- ✅ **ESLint** & Prettier configured
+- ✅ **Consistent** code style with EditorConfig
+- ✅ **Production-ready** folder structure
+
+---
+
+## 📋 Prerequisites
+
+- Node.js 18+ and npm
+- MongoDB (local or Atlas)
+- Docker & Docker Compose (optional)
+
+---
+
+## 🎯 Getting Started
+
+### 1. Use This Template
+
+On GitHub, click "Use this template" to create a new repository.
+
+### 2. Clone Your Repository
+
+\`\`\`bash
+git clone https://github.com/yourusername/your-project-name.git
+cd your-project-name
+\`\`\`
+
+### 3. Initialize the Project
+
+Run the interactive initialization script:
+
+\`\`\`bash
 npm install
-```
+npm run init
+\`\`\`
 
-### Backend
+This will:
+- Replace `my-awesome-app` placeholders with your project name
+- Set up package.json metadata
+- Generate a secure JWT secret (optional)
+- Create a customized README
 
-```bash
-cd ../server
-npm install
-```
+### 4. Set Up Environment Variables
 
-### Root dependencies
+\`\`\`bash
+# Copy environment files
+cp server/.env.example server/.env
+cp client/.env.example client/.env
+\`\`\`
 
-```bash
-cd ..
-npm install
-```
+Edit the `.env` files with your actual configuration.
 
-## 3. Local Development (without Docker)
+**Important**: Update `JWT_SECRET` in `server/.env` with the generated secret!
 
-```bash
+### 5. Install Dependencies
+
+\`\`\`bash
+npm run install:all
+\`\`\`
+
+### 6. Start Development
+
+\`\`\`bash
 npm run dev
-```
+\`\`\`
+
+This starts both client and server concurrently:
+- **Frontend**: http://localhost:5173
+- **Backend**: http://localhost:4000
+- **Health check**: http://localhost:4000/api/health
+
+---
+
+## 🐳 Docker Setup
+
+### Start with Docker Compose
+
+\`\`\`bash
+docker compose up --build
+\`\`\`
 
 This starts:
-
-- Frontend → http://localhost:5173
-- Backend → http://localhost:4000
-
----
-
-# Docker Setup
-
-Docker runs client, server, and MongoDB at once.
-
-### Start Docker
-
-Ensure Docker Desktop is running, then in WSL:
-
-# Docker Setup
-
-Docker runs client, server, and MongoDB together.
-
-### Start Docker
-
-Ensure Docker (or Docker Desktop) is running, then in WSL / terminal:
-
-```bash
-docker compose up --build
-```
-
-### Services
-
-- Client → http://localhost:5173
-- Server → http://localhost:4000
-- MongoDB → localhost:27017
+- Frontend (port 5173)
+- Backend (port 4000)
+- MongoDB (port 27017)
 
 ### Stop Docker
 
-Press `Ctrl + C` in the terminal running compose, then:
-
-```bash
+\`\`\`bash
 docker compose down
-```
-
-# Linting & Code Quality
-
-### Frontend
-
-```bash
-cd client
-npm run lint
-```
-
-### Backend
-
-```bash
-cd server
-npm run lint
-```
-
-### Root
-
-```bash
-npm run lint
-```
-
-# Recommended VS Code Extensions
-
-- ESLint (Microsoft)
-- Prettier – Code formatter
-- EditorConfig
-
-# Future Enhancements
-
-- [ ] Notifications settings
-- [ ] Group chats in DMs
-- [ ] Public/private groups
-- [ ] Dark mode support
-- [ ] Tag-based post discovery
-- [ ] “Following only” feed
-- [ ] Infinite scroll feed
-- [ ] Skill tags or badges
-
-# Resources
-
-- React Docs – https://react.dev/
-- Express Docs – https://expressjs.com/
-- MongoDB Atlas Docs – https://www.mongodb.com/docs/atlas/
-- Docker Docs – https://docs.docker.com/
-- Vite Docs – https://vitejs.dev/guide/
+\`\`\`
 
 ---
 
-# Notes
+## 📁 Project Structure
 
-This project is actively being developed as a full-stack learning experience. Features and structure may evolve over time.
+\`\`\`
+my-awesome-app/
+├── client/                    # React frontend
+│   ├── src/
+│   │   ├── api/              # API client & methods
+│   │   ├── components/       # Reusable components
+│   │   ├── context/          # React context (Auth, etc.)
+│   │   ├── pages/            # Page components
+│   │   ├── routes/           # Route configuration
+│   │   ├── styles/           # CSS files
+│   │   └── App.jsx           # Main app component
+│   ├── package.json
+│   └── .env.example
+│
+├── server/                    # Node.js backend
+│   ├── config/               # Configuration files
+│   │   ├── database.js       # MongoDB connection
+│   │   └── env.js            # Environment validation
+│   ├── controllers/          # Request handlers
+│   ├── middleware/           # Express middleware
+│   │   ├── auth.js           # JWT authentication
+│   │   ├── errorHandler.js   # Error handling
+│   │   └── rateLimiter.js    # Rate limiting
+│   ├── models/               # Mongoose models
+│   ├── routes/               # API routes
+│   ├── utils/                # Utilities
+│   │   ├── AppError.js       # Custom error class
+│   │   └── logger.js         # Winston logger
+│   ├── server.js             # Entry point
+│   ├── package.json
+│   └── .env.example
+│
+├── scripts/                   # Utility scripts
+│   └── init-project.js       # Template initialization
+├── docker-compose.yml        # Docker orchestration
+├── package.json              # Root dependencies
+└── README.md                 # This file
+\`\`\`
+
+---
+
+## 🔐 Authentication
+
+The template includes a complete JWT authentication system:
+
+### Endpoints
+
+- `POST /api/auth/register` - Create new user
+- `POST /api/auth/login` - Login user
+- `POST /api/auth/logout` - Logout user
+- `POST /api/auth/refresh` - Refresh access token
+- `GET /api/auth/me` - Get current user (protected)
+
+### How It Works
+
+1. **Access tokens** (short-lived, 15 min) are stored in localStorage
+2. **Refresh tokens** (long-lived, 7 days) are stored in httpOnly cookies
+3. Axios interceptor automatically refreshes expired access tokens
+4. Protected routes require valid JWT
+
+---
+
+## 🛠️ Available Scripts
+
+### Root
+
+- `npm run dev` - Start both client and server
+- `npm run install:all` - Install all dependencies
+- `npm run lint` - Lint both client and server
+- `npm run init` - Initialize template with your project details
+
+### Client
+
+- `npm run dev` - Start Vite dev server
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+
+### Server
+
+- `npm run dev` - Start with nodemon
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+
+---
+
+## 🔒 Security Features
+
+- **Helmet** - Security headers
+- **CORS** - Configured for specific origins
+- **Rate Limiting** - Prevent brute force attacks
+- **Input Sanitization** - Prevent NoSQL injection
+- **Password Hashing** - bcrypt with salt rounds
+- **JWT** - Secure token-based authentication
+- **Environment Validation** - Type-safe config with Zod
+
+---
+
+## 🧪 Customization Guide
+
+### Add a New API Route
+
+1. Create model in `server/models/`
+2. Create controller in `server/controllers/`
+3. Create route file in `server/routes/`
+4. Register route in `server/routes/index.js`
+
+### Add a New Frontend Page
+
+1. Create component in `client/src/pages/YourPage/`
+2. Add route in `client/src/routes/AppRoutes.jsx`
+3. Link to it from other pages
+
+### Add Protection to a Route
+
+\`\`\`javascript
+import { protect } from '../middleware/auth.js'
+
+router.get('/protected', protect, yourController)
+\`\`\`
+
+### Add Role-Based Access
+
+\`\`\`javascript
+import { protect, restrictTo } from '../middleware/auth.js'
+
+router.delete('/admin-only', protect, restrictTo('admin'), yourController)
+\`\`\`
+
+---
+
+## 📝 Environment Variables
+
+### Server (.env)
+
+\`\`\`env
+NODE_ENV=development
+PORT=4000
+MONGODB_URI=mongodb://mongo:27017/yourdb
+JWT_SECRET=your-generated-secret-here
+JWT_EXPIRE=15m
+JWT_REFRESH_EXPIRE=7d
+CORS_ORIGIN=http://localhost:5173
+LOG_LEVEL=debug
+\`\`\`
+
+### Client (.env)
+
+\`\`\`env
+VITE_API_URL=http://localhost:4000/api
+\`\`\`
+
+---
+
+## 📚 Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React 19, React Router, Axios |
+| Backend | Node.js, Express.js |
+| Database | MongoDB, Mongoose |
+| Auth | JWT (jsonwebtoken) |
+| Security | Helmet, bcrypt, rate-limit |
+| Logging | Winston, Morgan |
+| Validation | Zod |
+| Dev Tools | Vite, ESLint, Prettier, Nodemon |
+| DevOps | Docker, Docker Compose |
+
+---
+
+## 🤝 Contributing
+
+This is a template repository. After initializing your project, you can:
+
+1. Remove the template-specific files
+2. Update this README for your project
+3. Add your own features and customizations
+
+---
+
+## 📄 License
+
+MIT License - feel free to use this template for any project!
+
+---
+
+## 🙏 Acknowledgments
+
+This template includes production-ready best practices for:
+- Security hardening
+- Error handling and logging
+- Authentication and authorization
+- Clean code architecture
+- Docker containerization
+
+Built with ❤️ for the developer community.
+
+---
+
+## 📖 Additional Resources
+
+After running `npm run init`, see `README_ORIGINAL.md` for:
+- Detailed architecture documentation
+- Setup instructions
+- Best practices guide
+- Troubleshooting tips
