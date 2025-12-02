@@ -56,6 +56,9 @@ const Register = () => {
 
   return (
     <div className="login-container">
+      <Link to="/" className="back-link">
+        ← Back to Home
+      </Link>
       <div className="login-box">
         <h2>Create Account</h2>
 

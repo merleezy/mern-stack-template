@@ -1,4 +1,4 @@
-# my-awesome-app - Production-Ready MERN Stack Template
+# {{PROJECT_NAME}} - Production-Ready MERN Stack Template
 
 A modern, production-ready MERN (MongoDB, Express, React, Node.js) stack template with authentication, security best practices, and Docker support.
 

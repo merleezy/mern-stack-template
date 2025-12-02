@@ -22,7 +22,7 @@ function replacePlaceholders(filePath, replacements) {
     let content = fs.readFileSync(filePath, 'utf8')
 
     Object.entries(replacements).forEach(([key, value]) => {
-      const regex = new RegExp(`{{${key}}}`, 'g')
+      const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g')
       content = content.replace(regex, value)
     })
 

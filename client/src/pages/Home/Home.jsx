@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <header className="home-header">
-        <h1>Welcome to {{ PROJECT_NAME }}</h1>
+        <h1>Welcome to {'{{PROJECT_NAME}}'}</h1>
         <p>A modern MERN stack application template</p>
       </header>
 
