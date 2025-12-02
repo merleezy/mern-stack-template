@@ -4,34 +4,34 @@ A modern, production-ready MERN (MongoDB, Express, React, Node.js) stack templat
 
 ---
 
-## 🚀 Features
+## Features
 
 ### Backend
-- ✅ **JWT Authentication** with access & refresh tokens
-- ✅ **Security hardened** (Helmet, rate limiting, input sanitization)
-- ✅ **Error handling** with development/production modes
-- ✅ **Logging** with Winston (file & console)
-- ✅ **Environment validation** with Zod
-- ✅ **MongoDB** with Mongoose ODM
-- ✅ **RESTful API** structure
+- **JWT Authentication** with access & refresh tokens
+- **Security hardened** (Helmet, rate limiting, input sanitization)
+- **Error handling** with development/production modes
+- **Logging** with Winston (file & console)
+- **Environment validation** with Zod
+- **MongoDB** with Mongoose ODM
+- **RESTful API** structure
 
 ### Frontend
-- ✅ **React 19** with Vite
-- ✅ **React Router** for navigation
-- ✅ **Auth Context** for state management
-- ✅ **Protected routes**
-- ✅ **Axios** with interceptors for API calls
-- ✅ **Responsive** starter pages
+- **React 19** with Vite
+- **React Router** for navigation
+- **Auth Context** for state management
+- **Protected routes**
+- **Axios** with interceptors for API calls
+- **Responsive** starter pages
 
 ### DevOps
-- ✅ **Docker** & Docker Compose support
-- ✅ **ESLint** & Prettier configured
-- ✅ **Consistent** code style with EditorConfig
-- ✅ **Production-ready** folder structure
+- **Docker** & Docker Compose support
+- **ESLint** & Prettier configured
+- **Consistent** code style with EditorConfig
+- **Production-ready** folder structure
 
 ---
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Node.js 18+ and npm
 - MongoDB (local or Atlas)
@@ -39,7 +39,7 @@ A modern, production-ready MERN (MongoDB, Express, React, Node.js) stack templat
 
 ---
 
-## 🎯 Getting Started
+## Getting Started
 
 ### 1. Use This Template
 
@@ -47,19 +47,19 @@ On GitHub, click "Use this template" to create a new repository.
 
 ### 2. Clone Your Repository
 
-\`\`\`bash
+```bash
 git clone https://github.com/yourusername/your-project-name.git
 cd your-project-name
-\`\`\`
+```
 
 ### 3. Initialize the Project
 
 Run the interactive initialization script:
 
-\`\`\`bash
+```bash
 npm install
 npm run init
-\`\`\`
+```
 
 This will:
 - Replace `my-awesome-app` placeholders with your project name
@@ -69,11 +69,11 @@ This will:
 
 ### 4. Set Up Environment Variables
 
-\`\`\`bash
+```bash
 # Copy environment files
 cp server/.env.example server/.env
 cp client/.env.example client/.env
-\`\`\`
+```
 
 Edit the `.env` files with your actual configuration.
 
@@ -81,15 +81,15 @@ Edit the `.env` files with your actual configuration.
 
 ### 5. Install Dependencies
 
-\`\`\`bash
+```bash
 npm run install:all
-\`\`\`
+```
 
 ### 6. Start Development
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 This starts both client and server concurrently:
 - **Frontend**: http://localhost:5173
@@ -98,13 +98,13 @@ This starts both client and server concurrently:
 
 ---
 
-## 🐳 Docker Setup
+## Docker Setup
 
 ### Start with Docker Compose
 
-\`\`\`bash
+```bash
 docker compose up --build
-\`\`\`
+```
 
 This starts:
 - Frontend (port 5173)
@@ -113,15 +113,15 @@ This starts:
 
 ### Stop Docker
 
-\`\`\`bash
+```bash
 docker compose down
-\`\`\`
+```
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
-\`\`\`
+```
 my-awesome-app/
 ├── client/                    # React frontend
 │   ├── src/
@@ -158,11 +158,11 @@ my-awesome-app/
 ├── docker-compose.yml        # Docker orchestration
 ├── package.json              # Root dependencies
 └── README.md                 # This file
-\`\`\`
+```
 
 ---
 
-## 🔐 Authentication
+## Authentication
 
 The template includes a complete JWT authentication system:
 
@@ -183,7 +183,7 @@ The template includes a complete JWT authentication system:
 
 ---
 
-## 🛠️ Available Scripts
+## Available Scripts
 
 ### Root
 
@@ -206,7 +206,7 @@ The template includes a complete JWT authentication system:
 
 ---
 
-## 🔒 Security Features
+## Security Features
 
 - **Helmet** - Security headers
 - **CORS** - Configured for specific origins
@@ -218,7 +218,7 @@ The template includes a complete JWT authentication system:
 
 ---
 
-## 🧪 Customization Guide
+## Customization Guide
 
 ### Add a New API Route
 
@@ -235,27 +235,27 @@ The template includes a complete JWT authentication system:
 
 ### Add Protection to a Route
 
-\`\`\`javascript
+```javascript
 import { protect } from '../middleware/auth.js'
 
 router.get('/protected', protect, yourController)
-\`\`\`
+```
 
 ### Add Role-Based Access
 
-\`\`\`javascript
+```javascript
 import { protect, restrictTo } from '../middleware/auth.js'
 
 router.delete('/admin-only', protect, restrictTo('admin'), yourController)
-\`\`\`
+```
 
 ---
 
-## 📝 Environment Variables
+## Environment Variables
 
 ### Server (.env)
 
-\`\`\`env
+```env
 NODE_ENV=development
 PORT=4000
 MONGODB_URI=mongodb://mongo:27017/yourdb
@@ -264,17 +264,17 @@ JWT_EXPIRE=15m
 JWT_REFRESH_EXPIRE=7d
 CORS_ORIGIN=http://localhost:5173
 LOG_LEVEL=debug
-\`\`\`
+```
 
 ### Client (.env)
 
-\`\`\`env
+```env
 VITE_API_URL=http://localhost:4000/api
-\`\`\`
+```
 
 ---
 
-## 📚 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -290,7 +290,7 @@ VITE_API_URL=http://localhost:4000/api
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 This is a template repository. After initializing your project, you can:
 
@@ -300,13 +300,13 @@ This is a template repository. After initializing your project, you can:
 
 ---
 
-## 📄 License
+## License
 
 MIT License - feel free to use this template for any project!
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 This template includes production-ready best practices for:
 - Security hardening
@@ -315,11 +315,11 @@ This template includes production-ready best practices for:
 - Clean code architecture
 - Docker containerization
 
-Built with ❤️ for the developer community.
+Built with love for the developer community.
 
 ---
 
-## 📖 Additional Resources
+## Additional Resources
 
 After running `npm run init`, see `README_ORIGINAL.md` for:
 - Detailed architecture documentation
