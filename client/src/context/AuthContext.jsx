@@ -21,9 +21,13 @@ export const AuthProvider = ({ children }) => {
       if (token) {
         try {
           const data = await authAPI.getMe()
-          setUser(data.data.user)
+          if (data?.data?.user) {
+            setUser(data.data.user)
+          }
         } catch (error) {
+          // Token is invalid, clear it
           localStorage.removeItem('accessToken')
+          setUser(null)
         }
       }
       setLoading(false)

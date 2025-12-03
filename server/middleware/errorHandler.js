@@ -85,9 +85,11 @@ export const errorHandler = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500
   err.status = err.status || 'error'
 
-  if (process.env.NODE_ENV === 'development') {
+  const nodeEnv = process.env.NODE_ENV || 'development'
+  
+  if (nodeEnv === 'development') {
     sendErrorDev(err, res)
-  } else if (process.env.NODE_ENV === 'production') {
+  } else {
     let error = { ...err }
     error.message = err.message
 

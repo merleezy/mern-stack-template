@@ -7,6 +7,9 @@ import { User } from '../models/User.js'
  * Generate JWT Token
  */
 export const generateToken = (userId, expiresIn = '15m') => {
+  if (!process.env.JWT_SECRET) {
+    throw new Error('JWT_SECRET is not defined')
+  }
   return jwt.sign({ userId }, process.env.JWT_SECRET, {
     expiresIn,
   })
@@ -16,6 +19,9 @@ export const generateToken = (userId, expiresIn = '15m') => {
  * Verify JWT Token
  */
 export const verifyToken = (token) => {
+  if (!process.env.JWT_SECRET) {
+    throw new Error('JWT_SECRET is not defined')
+  }
   try {
     return jwt.verify(token, process.env.JWT_SECRET)
   } catch (error) {
@@ -70,9 +76,14 @@ export const protect = asyncHandler(async (req, res, next) => {
 /**
  * Restrict to specific roles
  * Usage: restrictTo('admin', 'moderator')
+ * Note: Must be used after protect middleware
  */
 export const restrictTo = (...roles) => {
   return (req, res, next) => {
+    if (!req.user) {
+      throw new AppError('Authentication required', 401)
+    }
+    
     if (!roles.includes(req.user.role)) {
       throw new AppError(
         'You do not have permission to perform this action',

@@ -16,10 +16,14 @@ const logger = winston.createLogger({
     logFormat
   ),
   transports: [
-    // Console transport
-    new winston.transports.Console({
-      format: combine(colorize(), logFormat),
-    }),
+    // Console transport (only in development)
+    ...(process.env.NODE_ENV !== 'production'
+      ? [
+          new winston.transports.Console({
+            format: combine(colorize(), logFormat),
+          }),
+        ]
+      : []),
     // File transport for errors
     new winston.transports.File({
       filename: 'logs/error.log',
@@ -33,20 +37,5 @@ const logger = winston.createLogger({
   // Don't exit on error
   exitOnError: false,
 })
-
-// If not in production, log to console with more detail
-if (process.env.NODE_ENV !== 'production') {
-  logger.add(
-    new winston.transports.Console({
-      format: combine(
-        colorize(),
-        timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
-        printf(({ level, message, timestamp, stack }) => {
-          return `${timestamp} [${level}]: ${stack || message}`
-        })
-      ),
-    })
-  )
-}
 
 export default logger

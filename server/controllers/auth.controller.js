@@ -1,7 +1,7 @@
 import { User } from '../models/User.js'
 import AppError from '../utils/AppError.js'
 import { asyncHandler } from '../middleware/asyncHandler.js'
-import { generateToken } from '../middleware/auth.js'
+import { generateToken, verifyToken } from '../middleware/auth.js'
 import logger from '../utils/logger.js'
 
 /**
@@ -11,6 +11,11 @@ import logger from '../utils/logger.js'
  */
 export const register = asyncHandler(async (req, res) => {
   const { username, email, password, firstName, lastName } = req.body
+
+  // Validate required fields
+  if (!username || !email || !password) {
+    throw new AppError('Username, email, and password are required', 400)
+  }
 
   // Check if user already exists
   const existingUser = await User.findOne({
@@ -154,7 +159,7 @@ export const refreshToken = asyncHandler(async (req, res) => {
   }
 
   // Verify refresh token
-  const decoded = jwt.verify(token, process.env.JWT_SECRET)
+  const decoded = verifyToken(token)
 
   // Get user
   const user = await User.findById(decoded.userId)

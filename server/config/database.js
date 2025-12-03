@@ -37,20 +37,14 @@ export const connectDB = async () => {
 }
 
 /**
- * Graceful shutdown
+ * Graceful shutdown for database
  */
-const gracefulShutdown = async (signal) => {
-  logger.info(`${signal} received. Closing MongoDB connection...`)
+export const closeDB = async () => {
   try {
     await mongoose.connection.close()
     logger.info('MongoDB connection closed')
-    process.exit(0)
   } catch (error) {
     logger.error(`Error closing MongoDB connection: ${error.message}`)
-    process.exit(1)
+    throw error
   }
 }
-
-// Handle shutdown signals
-process.on('SIGINT', () => gracefulShutdown('SIGINT'))
-process.on('SIGTERM', () => gracefulShutdown('SIGTERM'))

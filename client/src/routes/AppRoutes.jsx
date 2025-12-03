@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { ProtectedRoute } from '../components/ProtectedRoute'
 import Home from '../pages/Home/Home'
@@ -41,7 +41,27 @@ export const AppRoutes = () => {
         />
 
         {/* 404 Route */}
-        <Route path="*" element={<div>404 - Page Not Found</div>} />
+        <Route
+          path="*"
+          element={
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '100vh',
+                textAlign: 'center',
+              }}
+            >
+              <h1>404</h1>
+              <p>Page Not Found</p>
+              <Link to="/" style={{ marginTop: '1rem' }}>
+                Go Home
+              </Link>
+            </div>
+          }
+        />
       </Routes>
     </BrowserRouter>
   )

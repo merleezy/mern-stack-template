@@ -52,15 +52,21 @@ apiClient.interceptors.response.use(
         )
 
         // Save new access token
-        localStorage.setItem('accessToken', data.data.accessToken)
-
-        // Retry the original request with new token
-        originalRequest.headers.Authorization = `Bearer ${data.data.accessToken}`
-        return apiClient(originalRequest)
+        if (data?.data?.accessToken) {
+          localStorage.setItem('accessToken', data.data.accessToken)
+          // Retry the original request with new token
+          originalRequest.headers.Authorization = `Bearer ${data.data.accessToken}`
+          return apiClient(originalRequest)
+        } else {
+          throw new Error('Invalid refresh token response')
+        }
       } catch (refreshError) {
         // Refresh failed, redirect to login
         localStorage.removeItem('accessToken')
-        window.location.href = '/login'
+        // Only redirect if we're not already on the login page
+        if (window.location.pathname !== '/login') {
+          window.location.href = '/login'
+        }
         return Promise.reject(refreshError)
       }
     }
