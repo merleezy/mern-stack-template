@@ -4,11 +4,15 @@ FROM node:22-alpine
 
 WORKDIR /app
 
+# Ensure production mode inside the container
+ENV NODE_ENV=production
+
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install dependencies (production only) with BuildKit cache
+# For Docker BuildKit: DOCKER_BUILDKIT=1 enables cache mounts
+RUN --mount=type=cache,target=/root/.npm npm ci --omit=dev
 
 # Copy application code
 COPY . .

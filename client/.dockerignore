@@ -1,3 +1,36 @@
+ # Dependencies
+ node_modules
+
+ # Build output
+ .dist
+ /dist
+ build
+
+ # Vite cache
+ vite-cache
+ .vite
+
+ # Logs
+ logs
+ *.log
+ npm-debug.log*
+ yarn-debug.log*
+ yarn-error.log*
+ pnpm-debug.log*
+
+ # Environment files
+ .env
+ .env.*
+
+ # Misc
+ .DS_Store
+ .git
+ .gitignore
+ npm-packages-offline-cache
+
+ # Docker
+ Dockerfile
+ docker-compose.yml
 node_modules
 dist
 .vite

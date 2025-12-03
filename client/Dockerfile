@@ -7,8 +7,9 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci
+# Install dependencies with BuildKit cache
+# For Docker BuildKit: DOCKER_BUILDKIT=1 enables cache mounts
+RUN --mount=type=cache,target=/root/.npm npm ci
 
 # Copy application code
 COPY . .
@@ -29,9 +30,9 @@ RUN echo 'server { \
     root /usr/share/nginx/html; \
     index index.html; \
     location / { \
-        try_files $uri $uri/ /index.html; \
+    try_files $uri $uri/ /index.html; \
     } \
-}' > /etc/nginx/conf.d/default.conf
+    }' > /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 

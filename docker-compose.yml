@@ -16,6 +16,8 @@ services:
       - ./server/.env
     environment:
       - MONGODB_URI=mongodb://mongo:27017/yourdb
+      # Allow Docker client (http://localhost) and Vite (http://localhost:5173)
+      - CORS_ORIGIN=http://localhost,http://localhost:5173
     depends_on:
       mongo:
         condition: service_healthy

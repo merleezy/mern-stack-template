@@ -103,6 +103,8 @@ This starts both client and server concurrently:
 - **Backend**: http://localhost:4000
 - **Health check**: http://localhost:4000/api/health
 
+> **Windows Users:** Due to how Windows handles signals, you need to **press Ctrl+C twice** to fully exit the development servers.
+
 ---
 
 ## Docker Setup
@@ -115,7 +117,7 @@ docker compose up --build
 
 This starts:
 
-- Frontend (port 5173)
+- Frontend (port 80)
 - Backend (port 4000)
 - MongoDB (port 27017)
 
@@ -124,6 +126,13 @@ This starts:
 ```bash
 docker compose down
 ```
+
+> Docker notes
+>
+> - Frontend runs at `http://localhost` (port 80).
+> - Backend runs at `http://localhost:4000`.
+> - CORS must allow both `http://localhost` and `http://localhost:5173` (for Vite dev). See Environment Variables below.
+> - If you change `client/.env`, rebuild the client image: `docker compose build client`.
 
 ---
 
@@ -270,7 +279,8 @@ MONGODB_URI=mongodb://mongo:27017/yourdb
 JWT_SECRET=your-generated-secret-here
 JWT_EXPIRE=15m
 JWT_REFRESH_EXPIRE=7d
-CORS_ORIGIN=http://localhost:5173
+# Comma-separated list of allowed origins (Docker + Vite dev)
+CORS_ORIGIN=http://localhost,http://localhost:5173
 LOG_LEVEL=debug
 ```
 
@@ -279,6 +289,16 @@ LOG_LEVEL=debug
 ```env
 VITE_API_URL=http://localhost:4000/api
 ```
+
+> Troubleshooting: Registration fails in Docker
+>
+> - Symptom: Requests blocked by CORS when the client runs on `http://localhost` (port 80).
+> - Fix: Ensure `CORS_ORIGIN` includes `http://localhost` (and `http://localhost:5173` for Vite). Recreate containers:
+>   - PowerShell:
+>     ```powershell
+>     $env:DOCKER_BUILDKIT=1; docker compose down -v
+>     $env:DOCKER_BUILDKIT=1; docker compose up --build
+>     ```
 
 ---
 
