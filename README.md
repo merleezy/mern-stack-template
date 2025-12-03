@@ -62,7 +62,7 @@ npm run init
 ```
 
 This will:
-- Replace `my-awesome-app` placeholders with your project name
+- Replace `{{PROJECT_NAME}}` placeholders with your project name
 - Set up package.json metadata
 - Generate a secure JWT secret (optional)
 - Create a customized README
@@ -122,7 +122,7 @@ docker compose down
 ## Project Structure
 
 ```
-my-awesome-app/
+{{PROJECT_NAME}}/
 ├── client/                    # React frontend
 │   ├── src/
 │   │   ├── api/              # API client & methods

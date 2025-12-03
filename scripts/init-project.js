@@ -53,7 +53,7 @@ function findFilesWithPlaceholders(dir, fileList = []) {
       const ext = path.extname(file)
       if (['.js', '.jsx', '.ts', '.tsx', '.json', '.md', '.env', '.example', '.html'].includes(ext)) {
         const content = fs.readFileSync(filePath, 'utf8')
-        if (content.includes('my-awesome-app')) {
+        if (content.includes('{{PROJECT_NAME}}')) {
           fileList.push(filePath)
         }
       }
