@@ -7,6 +7,7 @@ A modern, production-ready MERN (MongoDB, Express, React, Node.js) stack templat
 ## Features
 
 ### Backend
+
 - **JWT Authentication** with access & refresh tokens
 - **Security hardened** (Helmet, rate limiting, input sanitization)
 - **Error handling** with development/production modes
@@ -16,6 +17,7 @@ A modern, production-ready MERN (MongoDB, Express, React, Node.js) stack templat
 - **RESTful API** structure
 
 ### Frontend
+
 - **React 19** with Vite
 - **React Router** for navigation
 - **Auth Context** for state management
@@ -24,6 +26,7 @@ A modern, production-ready MERN (MongoDB, Express, React, Node.js) stack templat
 - **Responsive** starter pages
 
 ### DevOps
+
 - **Docker** & Docker Compose support
 - **ESLint** & Prettier configured
 - **Consistent** code style with EditorConfig
@@ -48,7 +51,7 @@ On GitHub, click "Use this template" to create a new repository.
 ### 2. Clone Your Repository
 
 ```bash
-git clone https://github.com/yourusername/your-project-name.git
+git clone https://github.com/merleezy/mern-stack-template.git your-project-name
 cd your-project-name
 ```
 
@@ -62,6 +65,7 @@ npm run init
 ```
 
 This will:
+
 - Replace `{{PROJECT_NAME}}` placeholders with your project name
 - Set up package.json metadata
 - Generate a secure JWT secret (optional)
@@ -69,15 +73,17 @@ This will:
 
 ### 4. Set Up Environment Variables
 
+**Important:** Copy environment files AFTER running `npm run init` so placeholders are replaced:
+
 ```bash
 # Copy environment files
 cp server/.env.example server/.env
 cp client/.env.example client/.env
 ```
 
-Edit the `.env` files with your actual configuration.
+Edit the `.env` files with your actual configuration if needed.
 
-**Important**: Update `JWT_SECRET` in `server/.env` with the generated secret!
+**Note**: The JWT secret is already generated in `.env.example` if you selected 'y' during init!
 
 ### 5. Install Dependencies
 
@@ -92,6 +98,7 @@ npm run dev
 ```
 
 This starts both client and server concurrently:
+
 - **Frontend**: http://localhost:5173
 - **Backend**: http://localhost:4000
 - **Health check**: http://localhost:4000/api/health
@@ -107,6 +114,7 @@ docker compose up --build
 ```
 
 This starts:
+
 - Frontend (port 5173)
 - Backend (port 4000)
 - MongoDB (port 27017)
@@ -236,17 +244,17 @@ The template includes a complete JWT authentication system:
 ### Add Protection to a Route
 
 ```javascript
-import { protect } from '../middleware/auth.js'
+import { protect } from '../middleware/auth.js';
 
-router.get('/protected', protect, yourController)
+router.get('/protected', protect, yourController);
 ```
 
 ### Add Role-Based Access
 
 ```javascript
-import { protect, restrictTo } from '../middleware/auth.js'
+import { protect, restrictTo } from '../middleware/auth.js';
 
-router.delete('/admin-only', protect, restrictTo('admin'), yourController)
+router.delete('/admin-only', protect, restrictTo('admin'), yourController);
 ```
 
 ---
@@ -276,17 +284,17 @@ VITE_API_URL=http://localhost:4000/api
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React 19, React Router, Axios |
-| Backend | Node.js, Express.js |
-| Database | MongoDB, Mongoose |
-| Auth | JWT (jsonwebtoken) |
-| Security | Helmet, bcrypt, rate-limit |
-| Logging | Winston, Morgan |
-| Validation | Zod |
-| Dev Tools | Vite, ESLint, Prettier, Nodemon |
-| DevOps | Docker, Docker Compose |
+| Layer      | Technology                      |
+| ---------- | ------------------------------- |
+| Frontend   | React 19, React Router, Axios   |
+| Backend    | Node.js, Express.js             |
+| Database   | MongoDB, Mongoose               |
+| Auth       | JWT (jsonwebtoken)              |
+| Security   | Helmet, bcrypt, rate-limit      |
+| Logging    | Winston, Morgan                 |
+| Validation | Zod                             |
+| Dev Tools  | Vite, ESLint, Prettier, Nodemon |
+| DevOps     | Docker, Docker Compose          |
 
 ---
 
@@ -309,6 +317,7 @@ MIT License - feel free to use this template for any project!
 ## Acknowledgments
 
 This template includes production-ready best practices for:
+
 - Security hardening
 - Error handling and logging
 - Authentication and authorization
@@ -322,6 +331,7 @@ Built with love for the developer community.
 ## Additional Resources
 
 After running `npm run init`, see `README_ORIGINAL.md` for:
+
 - Detailed architecture documentation
 - Setup instructions
 - Best practices guide

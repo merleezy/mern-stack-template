@@ -78,6 +78,16 @@ async function init() {
   console.log('\n🚀 MERN Stack Template Initialization\n')
   console.log('This script will customize the template for your project.\n')
 
+  // Check if .env files already exist
+  const serverEnvPath = path.join(rootDir, 'server', '.env')
+  const clientEnvPath = path.join(rootDir, 'client', '.env')
+
+  if (fs.existsSync(serverEnvPath) || fs.existsSync(clientEnvPath)) {
+    console.log('⚠️  Warning: .env files already exist!')
+    console.log('   They will NOT be updated by this script.')
+    console.log('   Delete them and re-run if you want placeholders replaced.\n')
+  }
+
   // Get project details from user
   const projectName = await question('Project name (lowercase-with-dashes): ')
   const description = await question('Project description: ')
